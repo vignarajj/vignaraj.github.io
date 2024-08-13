@@ -39,6 +39,8 @@ dependencies:
   get: ^4.6.6
   # GetStorage for lightweight key-value storage.
   get_storage: ^2.1.1
+  animated_text_kit: ^4.2.1
+  google_fonts: ^2.3.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,13 @@ flutter:
     - assets/fonts/
     - assets/packages/
     - assets/shaders/
+    - assets/images/
+  fonts:
+    - family: SourceCodePro
+      fonts:
+        - asset: assets/assets/fonts/SourceCodePro-italic.ttf
+        - asset: assets/assets/fonts/SourceCodePro-variable.ttf
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

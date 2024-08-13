@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/shared/theme/app_colors.dart';
+import 'package:portfolio/shared/theme/text_styles.dart';
 
 class SkillChip extends StatelessWidget {
   final String label;
@@ -10,8 +12,11 @@ class SkillChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       backgroundColor: Colors.grey[800],
-      label: Text(label),
-      avatar: Icon(icon, color: Colors.amberAccent),
+      label: Text(label, style: TextStyles.consoleSkillChip),
+      avatar: Icon(
+        icon,
+        color: AppColors.appAccentColor,
+      ),
     );
   }
 }

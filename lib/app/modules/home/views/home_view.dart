@@ -1,5 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/shared/theme/text_styles.dart';
 import 'package:portfolio/shared/widgets/skill_chip.dart';
 
 import '../controllers/home_controller.dart';
@@ -16,60 +18,72 @@ class HomeView extends GetView<HomeController> {
             // Header Section
             Container(
               padding: const EdgeInsets.all(50),
-              child: const Column(
+              child: Column(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 75,
-                    backgroundImage: NetworkImage(
-                      'https://via.placeholder.com/150',
-                    ),
+                    backgroundImage:
+                        AssetImage("assets/images/profile_pic.jpeg"),
                   ),
-                  SizedBox(height: 20),
-                  Text(
-                    'Vignaraj R.R.',
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                  const SizedBox(height: 20),
+                  // Typing Animation for Name
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        'Vignaraj R.R.',
+                        textStyle: TextStyles.consoleHeader,
+                        speed: const Duration(milliseconds: 100),
+                      ),
+                    ],
+                    totalRepeatCount: 1,
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Tech Lead (Mobile Engineering)',
-                    style: TextStyle(fontSize: 24, color: Colors.amberAccent),
+                  const SizedBox(height: 10),
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        'Tech Lead (Mobile Engineering)',
+                        textStyle: TextStyles.consoleSubHeader,
+                        speed: const Duration(milliseconds: 100),
+                      ),
+                    ],
+                    totalRepeatCount: 1,
                   ),
                 ],
               ),
             ),
             // Summary Section
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
               child: Text(
                 'Experienced Tech Lead with 13+ years in mobile app development. Proficient in Android, Kotlin, Java, Flutter, and Dart. Skilled in testing (manual, unit, and automation), CI/CD with Code Magic, and project management using Jira. Expert in code reviews, documentation, and UI/UX design using Photoshop and Figma.',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, height: 1.5),
+                style: TextStyles.consoleBody,
               ),
             ),
-            // Skills Section
-            const Padding(
-              padding: EdgeInsets.all(30),
+            // Skills Section with Bounce Animation
+            Padding(
+              padding: const EdgeInsets.all(30),
               child: Wrap(
                 spacing: 20,
                 runSpacing: 20,
                 alignment: WrapAlignment.center,
                 children: [
-                  SkillChip(label: 'Android', icon: Icons.android),
-                  SkillChip(label: 'Kotlin', icon: Icons.code),
-                  SkillChip(label: 'Java', icon: Icons.coffee),
-                  SkillChip(label: 'Flutter', icon: Icons.mobile_friendly),
-                  SkillChip(label: 'Dart', icon: Icons.code),
-                  SkillChip(label: 'Postman', icon: Icons.build),
-                  SkillChip(label: 'Manual Testing', icon: Icons.bug_report),
-                  SkillChip(label: 'Unit Testing', icon: Icons.science),
-                  SkillChip(label: 'Automation Testing', icon: Icons.build),
-                  SkillChip(label: 'Code Magic (CI/CD)', icon: Icons.mood),
-                  SkillChip(label: 'Jira', icon: Icons.task),
-                  SkillChip(label: 'Documentation', icon: Icons.book),
-                  SkillChip(label: 'Code Review', icon: Icons.check),
-                  SkillChip(label: 'Git', icon: Icons.merge_type),
-                  SkillChip(label: 'Photoshop', icon: Icons.edit),
-                  SkillChip(label: 'Figma', icon: Icons.design_services),
+                  _buildAnimatedSkillChip('Android', Icons.android),
+                  _buildAnimatedSkillChip('Kotlin', Icons.code),
+                  _buildAnimatedSkillChip('Java', Icons.coffee),
+                  _buildAnimatedSkillChip('Flutter', Icons.mobile_friendly),
+                  _buildAnimatedSkillChip('Dart', Icons.code),
+                  _buildAnimatedSkillChip('Postman', Icons.build),
+                  _buildAnimatedSkillChip('Manual Testing', Icons.bug_report),
+                  _buildAnimatedSkillChip('Unit Testing', Icons.science),
+                  _buildAnimatedSkillChip('Automation Testing', Icons.build),
+                  _buildAnimatedSkillChip('Code Magic (CI/CD)', Icons.mood),
+                  _buildAnimatedSkillChip('Jira', Icons.task),
+                  _buildAnimatedSkillChip('Documentation', Icons.book),
+                  _buildAnimatedSkillChip('Code Review', Icons.check),
+                  _buildAnimatedSkillChip('Git', Icons.merge_type),
+                  _buildAnimatedSkillChip('Photoshop', Icons.edit),
+                  _buildAnimatedSkillChip('Figma', Icons.design_services),
                 ],
               ),
             ),
@@ -85,6 +99,21 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
       ),
+    );
+  }
+
+  // Custom method to create animated skill chips with a bounce effect
+  Widget _buildAnimatedSkillChip(String label, IconData icon) {
+    return TweenAnimationBuilder(
+      tween: Tween(begin: 0.0, end: 1.0),
+      duration: const Duration(seconds: 1),
+      curve: Curves.bounceOut,
+      builder: (context, value, child) {
+        return Transform.scale(
+          scale: value,
+          child: SkillChip(label: label, icon: icon),
+        );
+      },
     );
   }
 }

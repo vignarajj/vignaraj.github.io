@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/shared/theme/app_colors.dart';
 
 class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Colors.orange,
+    primaryColor: AppColors.appPrimaryColor,
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: AppBarTheme(
-      color: Colors.orange,
+      color: AppColors.appPrimaryColor,
       iconTheme: const IconThemeData(color: Colors.white),
       toolbarTextStyle: const TextTheme(
         titleLarge: TextStyle(
@@ -24,22 +25,22 @@ class AppTheme {
       ).titleLarge,
     ),
     buttonTheme: const ButtonThemeData(
-      buttonColor: Colors.orange,
+      buttonColor: AppColors.appPrimaryColor,
       textTheme: ButtonTextTheme.primary,
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.orange,
+      backgroundColor: AppColors.appPrimaryColor,
     ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(color: Colors.white),
       bodyLarge: TextStyle(color: Colors.white),
     ),
-    iconTheme: const IconThemeData(color: Colors.orangeAccent),
+    iconTheme: const IconThemeData(color: AppColors.appAccentColor),
     colorScheme: const ColorScheme(
       brightness: Brightness.dark,
-      primary: Colors.orange,
+      primary: AppColors.appPrimaryColor,
       onPrimary: Colors.white,
-      secondary: Colors.orangeAccent,
+      secondary: AppColors.appAccentColor,
       onSecondary: Colors.black,
       error: Colors.red,
       onError: Colors.white,
