@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/shared/models/skill_model.dart';
 import 'package:portfolio/shared/theme/app_colors.dart';
-import 'package:portfolio/shared/theme/text_styles.dart';
 
 class SkillChip extends StatelessWidget {
-  final String label;
-  final IconData icon;
+  final Skill skill;
+  final VoidCallback onTap;
 
-  const SkillChip({super.key, required this.label, required this.icon});
+  const SkillChip({required this.skill, required this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
-      backgroundColor: Colors.grey[800],
-      label: Text(label, style: TextStyles.consoleSkillChip),
-      avatar: Icon(
-        icon,
-        color: AppColors.appAccentColor,
+    return GestureDetector(
+      onTap: onTap,
+      child: Hero(
+        tag: skill.name,
+        child: Material(
+          color: Colors.transparent, // Ensure transparency
+          child: Chip(
+            label: Text(skill.name),
+            backgroundColor: AppColors.appAccentColor,
+            labelStyle: const TextStyle(color: Colors.white),
+            avatar: Icon(
+              skill.icon,
+              color: Colors.white,
+              size: 24.0,
+            ),
+          ),
+        ),
       ),
     );
   }
