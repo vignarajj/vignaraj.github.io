@@ -82,7 +82,9 @@ class HomeView extends GetResponsiveView<HomeController> {
                     .toList(),
               ),
             ),
-            const SizedBox(height: 40,),
+            const SizedBox(
+              height: 40,
+            ),
             // Leadership Skills
             const Text(
               'Core Competencies',
@@ -118,7 +120,10 @@ class HomeView extends GetResponsiveView<HomeController> {
                     style: TextStyle(fontSize: 16, color: Colors.white70),
                   ),
                   const SizedBox(height: 5),
-                  SvgPicture.asset('assets/images/flutter.svg', color: Colors.blueAccent,),
+                  SvgPicture.asset(
+                    'assets/images/flutter.svg',
+                    color: Colors.blueAccent,
+                  ),
                 ],
               ),
             ),

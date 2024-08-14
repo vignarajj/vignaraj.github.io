@@ -24,7 +24,8 @@ class SkillChip extends StatelessWidget {
             avatar: SvgPicture.asset(
               skill.iconPath,
               color: Colors.white,
-              width: 18, height: 18,
+              width: 18,
+              height: 18,
             ),
           ),
         ),
