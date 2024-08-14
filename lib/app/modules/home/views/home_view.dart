@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/shared/models/core_compentency.dart';
 import 'package:portfolio/shared/theme/text_styles.dart';
+import 'package:portfolio/shared/widgets/animated_section.dart';
 import 'package:portfolio/shared/widgets/bulletin_point_chip.dart';
 import 'package:portfolio/shared/widgets/contact_buttons.dart';
 import 'package:portfolio/shared/widgets/skill_chip.dart';
@@ -21,31 +22,45 @@ class HomeView extends GetResponsiveView<HomeController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _buildHeader(),
-            _buildSummary(),
-            _buildSkillsSection(),
-            _buildSectionTitle('Core Competencies'),
-            _buildChipSection(controller.coreCompetencies, true),
-            _buildSectionTitle('Future Goals'),
-            _buildChipSection(
-              [
-                'Beginning with RUST',
-                'Contribute to Open Source Projects',
-                'Explore the Machine learning and AI implementations',
-              ],
+            AnimatedSection(
+              delay: 0,
+              child: _buildHeader(),
             ),
-            _buildSectionTitle('Hobbies & Interests'),
-            _buildChipSection(
-              [
-                'Tech Gadgets',
-                'Traveling',
-                'Playing Cricket',
-                'Gaming',
-              ],
+            AnimatedSection(delay: 200, child: _buildSummary()),
+            AnimatedSection(delay: 400, child: _buildSkillsSection()),
+            AnimatedSection(
+                delay: 600, child: _buildSectionTitle('Core Competencies')),
+            AnimatedSection(
+                delay: 800,
+                child: _buildChipSection(controller.coreCompetencies, true)),
+            AnimatedSection(
+                delay: 1000, child: _buildSectionTitle('Future Goals')),
+            AnimatedSection(
+              delay: 1100,
+              child: _buildChipSection(
+                [
+                  'Beginning with RUST',
+                  'Contribute to Open Source Projects',
+                  'Explore the Machine learning and AI implementations',
+                ],
+              ),
+            ),
+            AnimatedSection(
+                delay: 1200, child: _buildSectionTitle('Hobbies & Interests')),
+            AnimatedSection(
+              delay: 1300,
+              child: _buildChipSection(
+                [
+                  'Tech Gadgets',
+                  'Traveling',
+                  'Playing Cricket',
+                  'Gaming',
+                ],
+              ),
             ),
             const SizedBox(height: 80),
             const ContactButtons(),
-            _buildFooter(),
+            AnimatedSection(delay: 1400, child: _buildFooter()),
           ],
         ),
       ),
@@ -115,7 +130,7 @@ class HomeView extends GetResponsiveView<HomeController> {
 
   Widget _buildSectionTitle(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 40),
+      padding: const EdgeInsets.only(top: 50, bottom: 10),
       child: Text(
         title,
         style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
