@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:portfolio/routes/app_pages.dart';
+import 'package:portfolio/shared/models/core_compentency.dart';
 import 'package:portfolio/shared/models/skill_model.dart';
 
 class HomeController extends GetxController {
@@ -122,7 +123,65 @@ class HomeController extends GetxController {
       proficiency: 0.6,
       iconPath: 'assets/images/github_skill.svg',
     ),
+    Skill(
+      name: "Rest API's",
+      description:
+      'Interface for sharing data between applications.',
+      proficiency: 0.6,
+      iconPath: 'assets/images/apis.svg',
+    ),
+    Skill(
+      name: 'Web Sockets',
+      description:
+      'Real-time, two-way communication channel.',
+      proficiency: 0.6,
+      iconPath: 'assets/images/websocket.svg',
+    ),
+    Skill(
+      name: 'POS(Point of Sale)',
+      description:
+      'Transaction hub for retail sales.',
+      proficiency: 0.6,
+      iconPath: 'assets/images/pos.svg',
+    ),
+    Skill(
+      name: 'Device Integration',
+      description:
+      'Wireless device connectivity expert',
+      proficiency: 0.6,
+      iconPath: 'assets/images/connectivity.svg',
+    ),
+    Skill(
+      name: 'ML/AI',
+      description:
+      'Expert in building intelligent systems.',
+      proficiency: 0.6,
+      iconPath: 'assets/images/ai.svg',
+    ),
   ].obs;
+
+  final List<CoreCompetency> coreCompetencies = [
+    CoreCompetency(
+      title: 'Team Management',
+      description:
+      'Experience in leading diverse teams, fostering collaboration, and ensuring successful project delivery through effective communication and strategic planning.',
+    ),
+    CoreCompetency(
+      title: 'Project Planning',
+      description:
+      'Skilled in creating detailed project plans, timelines, and resource allocation strategies to ensure timely and successful completion of projects.',
+    ),
+    CoreCompetency(
+      title: 'Mentorship and Coaching',
+      description:
+      'Passionate about mentoring and coaching team members to help them achieve their full potential, guiding them through technical challenges and career development.',
+    ),
+    CoreCompetency(
+      title: 'Audience Engagement',
+      description:
+      'Expertise in engaging with different audiences, understanding their needs, and delivering tailored solutions that resonate and achieve desired outcomes.',
+    ),
+  ];
 
   void openSkillDetail(Skill skill) {
     Get.toNamed(AppRoutes.skill, arguments: skill);
