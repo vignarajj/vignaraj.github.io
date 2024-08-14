@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/shared/theme/app_colors.dart';
 import 'package:portfolio/shared/theme/text_styles.dart';
@@ -69,6 +70,8 @@ class HomeView extends GetResponsiveView<HomeController> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                alignment: WrapAlignment.center,
                 spacing: 10,
                 runSpacing: 10,
                 children: controller.skills
@@ -79,16 +82,20 @@ class HomeView extends GetResponsiveView<HomeController> {
                     .toList(),
               ),
             ),
+            const SizedBox(height: 40,),
             // Leadership Skills
+            const Text(
+              'Core Competencies',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
             const Padding(
               padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                alignment: WrapAlignment.center,
                 children: [
-                  Text(
-                    'Core Competencies',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
                   SizedBox(height: 10),
                   BulletPointChip(text: 'Team Management'),
                   BulletPointChip(text: 'Project Planning'),
@@ -103,15 +110,15 @@ class HomeView extends GetResponsiveView<HomeController> {
             Container(
               padding: const EdgeInsets.all(30),
               color: Colors.black,
-              child: const Column(
+              child: Column(
                 children: [
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     'Developed using Flutter',
                     style: TextStyle(fontSize: 16, color: Colors.white70),
                   ),
-                  SizedBox(height: 5),
-                  Icon(Icons.flutter_dash, color: Colors.blueAccent, size: 24),
+                  const SizedBox(height: 5),
+                  SvgPicture.asset('assets/images/flutter.svg', color: Colors.blueAccent,),
                 ],
               ),
             ),
@@ -133,7 +140,7 @@ class BulletPointChip extends StatelessWidget {
       color: AppColors.appAccentColor,
       child: Chip(
         label: Text(text),
-        backgroundColor: AppColors.appAccentColor.withOpacity(0.2),
+        backgroundColor: AppColors.appAccentColor.withOpacity(0.9),
         labelStyle: const TextStyle(color: Colors.white),
         avatar: const Icon(Icons.check, color: Colors.white),
       ),

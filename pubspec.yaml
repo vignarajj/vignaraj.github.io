@@ -43,6 +43,7 @@ dependencies:
   google_fonts: ^2.3.1
   url_launcher: ^6.1.14
   flutter_svg: ^1.1.1+1
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +78,17 @@ flutter:
       fonts:
         - asset: assets/assets/fonts/SourceCodePro-italic.ttf
         - asset: assets/assets/fonts/SourceCodePro-variable.ttf
+    - family: NotoSans
+      fonts:
+        - asset: assets/assets/fonts/NotoSans-Regular.ttf
+        - asset: assets/assets/fonts/NotoSans-Bold.ttf
+          weight: 700
+    - family: NotoSerif
+      fonts:
+        - asset: assets/assets/fonts/NotoSerif-Regular.ttf
+        - asset: assets/assets/fonts/NotoSerif-Bold.ttf
+          weight: 700
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

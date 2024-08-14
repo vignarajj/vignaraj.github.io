@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/shared/models/skill_model.dart';
 import 'package:portfolio/shared/theme/app_colors.dart';
 
@@ -20,10 +21,10 @@ class SkillChip extends StatelessWidget {
             label: Text(skill.name),
             backgroundColor: AppColors.appAccentColor,
             labelStyle: const TextStyle(color: Colors.white),
-            avatar: Icon(
-              skill.icon,
+            avatar: SvgPicture.asset(
+              skill.iconPath,
               color: Colors.white,
-              size: 24.0,
+              width: 18, height: 18,
             ),
           ),
         ),

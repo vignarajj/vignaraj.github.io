@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/modules/skills/skill_controller.dart';
 import 'package:portfolio/shared/theme/app_colors.dart';
@@ -12,17 +13,14 @@ class SkillView extends GetResponsiveView<SkillController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(controller.skill.name),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Hero(
               tag: controller.skill.name,
-              child: Icon(controller.skill.icon,
-                  size: 100, color: AppColors.appAccentColor),
+              child: SvgPicture.asset(controller.skill.iconPath,
+                  width: 75, height: 75, color: AppColors.appAccentColor),
             ),
             const SizedBox(height: 20),
             Text(
@@ -45,11 +43,27 @@ class SkillView extends GetResponsiveView<SkillController> {
         tween: Tween<double>(begin: 0, end: proficiency),
         duration: const Duration(seconds: 2),
         builder: (context, double value, child) {
-          return LinearProgressIndicator(
-            value: value,
-            minHeight: 8,
-            backgroundColor: Colors.grey[300],
-            color: AppColors.appAccentColor,
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                width: 100,
+                height: 100,
+                child: CircularProgressIndicator(
+                  value: value,
+                  strokeWidth: 8,
+                  backgroundColor: Colors.grey[300],
+                  color: AppColors.appAccentColor,
+                ),
+              ),
+              Text(
+                '${(value * 100).toInt()}%', // Display percentage
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           );
         },
       ),

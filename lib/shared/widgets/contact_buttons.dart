@@ -26,7 +26,7 @@ class ContactButtons extends StatelessWidget {
               'assets/images/github.svg', // Path to your LinkedIn SVG icon
               width: 24,
               height: 24,
-              color: Colors.white,
+              color: Colors.green,
             ),
             onPressed: () => _launchURL('https://github.com/vignarajj'),
           ),
@@ -35,7 +35,7 @@ class ContactButtons extends StatelessWidget {
               'assets/images/medium.svg', // Path to your LinkedIn SVG icon
               width: 24,
               height: 24,
-              color: Colors.white,
+              color: Colors.green,
             ),
             onPressed: () => _launchURL('https://medium.com/@vignarajj'),
           ),
@@ -44,7 +44,7 @@ class ContactButtons extends StatelessWidget {
               'assets/images/linkedin.svg', // Path to your LinkedIn SVG icon
               width: 24,
               height: 24,
-              color: Colors.white,
+              color: Colors.green,
             ),
             onPressed: () => _launchURL(
                 'https://www.linkedin.com/in/vignaraj-ravi-25750b59/'),
