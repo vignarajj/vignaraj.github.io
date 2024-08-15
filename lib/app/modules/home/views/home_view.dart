@@ -41,7 +41,7 @@ class HomeView extends GetResponsiveView<HomeController> {
                 [
                   'Beginning with RUST',
                   'Contribute to Open Source Projects',
-                  'Explore the Machine learning and AI implementations',
+                  'Explore the ML and AI implementations',
                 ],
               ),
             ),
@@ -77,7 +77,7 @@ class HomeView extends GetResponsiveView<HomeController> {
             backgroundImage: AssetImage("assets/images/profile_pic.jpeg"),
           ),
           const SizedBox(height: 20),
-          _buildAnimatedText('VIGNARAJ R.R.', TextStyles.consoleHeader),
+          _buildAnimatedText('VIGNARAJ R.R.', TextStyles.consoleHeader.copyWith()),
           const SizedBox(height: 10),
           _buildAnimatedText(
               'TECH LEAD (MOBILE ENGINEERING)', TextStyles.consoleSubHeader),
@@ -92,6 +92,7 @@ class HomeView extends GetResponsiveView<HomeController> {
         TypewriterAnimatedText(
           text,
           textStyle: style,
+          textAlign: TextAlign.center,
           speed: const Duration(milliseconds: 100),
         ),
       ],
