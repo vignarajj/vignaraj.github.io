@@ -44,6 +44,8 @@ dependencies:
   url_launcher: ^6.1.14
   flutter_svg: ^1.1.1+1
   font_awesome_flutter: ^10.7.0
+  http: ^0.13.3
+  xml: ^6.5.0
 
 dev_dependencies:
   flutter_test:

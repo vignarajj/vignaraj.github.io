@@ -7,6 +7,7 @@ import 'package:portfolio/shared/theme/text_styles.dart';
 import 'package:portfolio/shared/widgets/animated_section.dart';
 import 'package:portfolio/shared/widgets/bulletin_point_chip.dart';
 import 'package:portfolio/shared/widgets/contact_buttons.dart';
+import 'package:portfolio/shared/widgets/medium_stories_widget.dart';
 import 'package:portfolio/shared/widgets/skill_chip.dart';
 import '../controllers/home_controller.dart';
 
@@ -158,6 +159,21 @@ class HomeView extends GetResponsiveView<HomeController> {
             return BulletPointChip(text: item.toString());
           }
         }).toList(),
+      ),
+    );
+  }
+
+  Widget _buildMediumStories() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        alignment: WrapAlignment.center,
+        spacing: 10,
+        runSpacing: 10,
+        children: [
+          MediumStoriesWidget(),
+        ],
       ),
     );
   }
